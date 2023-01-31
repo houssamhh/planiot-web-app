@@ -6,7 +6,7 @@ PlanIoT is a framework-based solution that enables adaptive data flow management
 ## Getting Started
 This repository contains the following directories:
 * ```Code/PlanIoT-SEAMS2023```: contains the *Queueing Network Composer* and the *Dataset Generator* components as a Maven project.
-* ```Scenarios```: contains the files needed to run experiments using PlanIoT (e.g., IoT space specifications, PDDL templates). These files were used to run the experiments found in [**add ref**]
+* ```Scenarios```: contains the files needed to run experiments using PlanIoT (e.g., IoT space specifications, PDDL templates). These files were used to run the experiments found in [1]
 * ```Scripts```: contains scripts needed to run the Queueing Network Composer, Dataset Generator, PDDL Modeler, and the AI Planner.
 
 ### Installing PlanIoT
@@ -154,3 +154,5 @@ Configure your shell to complement the `CLASSPATH` with the JMT archive:
 export CLASSPATH=$CLASSPATH:/opt/JMT-v1.2.2/jmt-singlejar-1.2.2.jar
 ```
 You can now start [using PlanIoT](#using-planiot).
+
+[1] H. Hajj Hassan, G. Bouloukakis, A. Kattepur, D. Conan, and D. Belaïd, “PlanIoT: A Framework for Adaptive Data Flow Management in IoT-enhanced Spaces,” in IEEE/ACM International Symposium on Software Engineering for Adaptive and Self-Managing Systems (SEAMS), 2023.
