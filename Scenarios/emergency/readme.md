@@ -5,4 +5,4 @@ This directory contains the input and output files needed to run an experiment f
 * ```pddl-files```: contains the generated PDDL domain and problem files.
 * ```pddl-templates```: contains the PDDL domain and problem file templates.
 * ```plans```: contained the generated plans for Edge infrastructure configuration.
- * ```space-specifications```: contains JSON files that represent the IoT space specification under different configuration settings.
+ * ```system-specifications```: contains JSON files that represent the IoT system specification under different configuration settings.

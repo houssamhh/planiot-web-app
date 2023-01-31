@@ -17,7 +17,7 @@ Usage: ```run_planner.sh <domain-file> <problem-file> <solution-file>``` where:
 
 * ```run_simulation.sh```: used to compose the JMT queueing network, run the simulation, and generate performance metrics files.
 Usage: ```Scripts/run_simulation.sh <input-file> <output-file> <simulation-duration> <alias>``` where:
-	*  ``<input-file>`` is the JSON file containing the IoT space specifications.
+	*  ``<input-file>`` is the JSON file containing the IoT system specifications.
 	*  ``<output-file>`` is the file that contains response times of subscriptions under different configurations of the IoT system. If the file does not exist, it will be created.
 	* ``<simulation-duration>`` is the duration for which you wish to run the simulation (in seconds). We recommend running the simulation for at least 5 minutes to reach a 95% confidence interval.
 	* ``<alias>`` is an alias that represents the configuration of the IoT system. This alias is going to be used when storing the results in the dataset.

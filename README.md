@@ -6,7 +6,7 @@ PlanIoT is a framework-based solution that enables adaptive data flow management
 ## Getting Started
 This repository contains the following directories:
 * ```Code/PlanIoT-SEAMS2023```: contains the *Queueing Network Composer* and the *Dataset Generator* components as a Maven project.
-* ```Scenarios```: contains the files needed to run experiments using PlanIoT (e.g., IoT space specifications, PDDL templates). These files were used to run the experiments found in [1]
+* ```Scenarios```: contains the files needed to run experiments using PlanIoT (e.g., IoT system specifications, PDDL templates). These files were used to run the experiments found in [1]
 * ```Scripts```: contains scripts needed to run the Queueing Network Composer, Dataset Generator, PDDL Modeler, and the AI Planner.
 
 ### Installing PlanIoT
@@ -55,12 +55,12 @@ planiot@657641f176f4:~$ (cd Code/PlanIoT-SEAMS2023/;mvn -q install)
 To illustrate how PlanIoT can be used, we go through an example using the files in the ```Scenarios/medium-load``` directory.
 
 ##### Generating a performance metrics dataset
-The directory ```Scenarios/medium-load/space-specifications``` contains IoT space specifications for an IoT system with 16 applications, 30 topics, and 80 subscriptions. Each JSON file corresponds to a specific configuration of the IoT system. For example, the file ```default.json``` represents a basic IoT platform where no priorities, drop rates, or resource allocation policies are used. On the other hand, the files ```prioRT.json``` and ```dropVS1.json``` represent the same IoT system while applying priorities to RT applications and a drop rate of 1% to VS applications, respectively.
+The directory ```Scenarios/medium-load/system-specifications``` contains IoT system specifications for an IoT system with 16 applications, 30 topics, and 80 subscriptions. Each JSON file corresponds to a specific configuration of the IoT system. For example, the file ```default.json``` represents a basic IoT platform where no priorities, drop rates, or resource allocation policies are used. On the other hand, the files ```prioRT.json``` and ```dropVS1.json``` represent the same IoT system while applying priorities to RT applications and a drop rate of 1% to VS applications, respectively.
 
 To create a queueing network, simulate it, and add the results of the simulation to the dataset, run the following command:
 ```Scripts/run_simulation.sh <input-file> <output-file> <simulation-duration> <alias>```
 where:
-*  ``<input-file>`` is the JSON file containing the IoT space specifications,
+*  ``<input-file>`` is the JSON file containing the IoT system specifications,
 *  ``<output-file>`` is the response times of subscriptions under different configurations of the IoT system. If the file does not exist, it will be created.
 * ``<simulation-duration>`` is the duration for which you wish to run the simulation (in seconds). We recommend running the simulation for at least 5 minutes to reach a 95% confidence interval.
 * ``<alias>`` is an alias that represents the configuration of the IoT system. This alias is going to be used when storing the results in the dataset.
@@ -69,11 +69,11 @@ For example, if you want to run a simulation for the ``default`` configuration o
 ``` 
 $ planiot@657641f176f4:~$ pwd
 /home/planiot
-planiot@657641f176f4:~$ Scripts/run_simulation.sh Scenarios/medium-load/space-specifications/default.json Scenarios/medium-load/dataset/results.csv 300 default
+planiot@657641f176f4:~$ Scripts/run_simulation.sh Scenarios/medium-load/system-specifications/default.json Scenarios/medium-load/dataset/results.csv 300 default
 ```
 This command will generate ```metrics_default.csv``` and ```results.csv``` files in the ```Scenarios/medium-load/dataset``` directory.
 
-To populate the dataset, you need to run simulations for multiple configurations of the system. For example, we use the files in the ```Scenarios/medium-load/space-specifications``` directory to create the dataset found in ```Scenarios/medium-load/dataset```.
+To populate the dataset, you need to run simulations for multiple configurations of the system. For example, we use the files in the ```Scenarios/medium-load/system-specifications``` directory to create the dataset found in ```Scenarios/medium-load/dataset```.
 
 ##### Creating the PDDL domain and problem files
 Once the dataset is created, we can instantiate the PDDL domain and problem files. To do this, we run the following command:
