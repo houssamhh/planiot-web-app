@@ -6,5 +6,5 @@ solutionFile=$3
 
 CMD="ff -o ${domainFile} -f ${problemFile}"
 
-$CMD
+$CMD > ${solutionFile}
 
