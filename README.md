@@ -68,7 +68,7 @@ where:
 For example, if you want to run a simulation for the ``default`` configuration of the system, run the following command:
 ``` 
 $ planiot@657641f176f4:~$ pwd
-/home/planiot
+/home/planiot/planiot-seams2023
 planiot@657641f176f4:~$ Scripts/run_simulation.sh Scenarios/medium-load/system-specifications/default.json Scenarios/medium-load/dataset/results.csv 300 default
 ```
 This command will generate ```metrics_default.csv``` and ```results.csv``` files in the ```Scenarios/medium-load/dataset``` directory.
@@ -89,7 +89,7 @@ Running this command will create the PDDL domain and problem files needed to run
 
 For example, continuing with our medium-loaded system, we can run the following command to instantiate the PDDL domain and problem file templates:
 ```
-$ python InstantiatePddlTemplates.py \
+$ python Scripts/InstantiatePddlTemplates.py \
 Scenarios/medium-load/dataset/response-times.csv \
 Scenarios/medium-load/pddl-templates/domain-template.pddl \
 Scenarios/medium-load/pddl-templates/problem-template.pddl
