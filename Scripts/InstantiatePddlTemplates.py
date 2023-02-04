@@ -1,12 +1,6 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
-Created on Tue Apr 12 17:49:27 2022
-
-@author: houssam
-"""#!/usr/bin/env python2
-# -*- coding: utf-8 -*-
-"""
 Created on Wed Mar 30 17:54:37 2022
 
 @author: houssam
@@ -25,7 +19,8 @@ def get_path_of_generated(path):
     else:
         generated_file_name = filename.split('.')[0] + "-generated.pddl"
     path_parts.pop()
-    output_file_path = os.sep.join(path_parts) + os.sep + generated_file_name
+    path_parts.pop()
+    output_file_path = os.sep.join(path_parts) + os.sep + 'pddl-files' + os.sep + generated_file_name
     return output_file_path
     
 def instantiate_files(dataset_path, domain_template, problem_template, domain_generated, problem_generated):
