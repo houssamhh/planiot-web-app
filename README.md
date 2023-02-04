@@ -68,7 +68,7 @@ where:
 For example, if you want to run a simulation for the ``default`` configuration of the system, run the following command:
 ``` 
 $ planiot@657641f176f4:~$ pwd
-/home/planiot/planiot-seams2023
+/home/planiot/planiot
 planiot@657641f176f4:~$ Scripts/run_simulation.sh Scenarios/medium-load/system-specifications/default.json Scenarios/medium-load/dataset/results.csv 300 default
 ```
 This command will generate ```metrics_default.csv``` and ```results.csv``` files in the ```Scenarios/medium-load/dataset``` directory.
