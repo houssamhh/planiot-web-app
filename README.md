@@ -75,6 +75,8 @@ This command will generate ```metrics_default.csv``` and ```results.csv``` files
 
 To populate the dataset, you need to run simulations for multiple configurations of the system. For example, we use the files in the ```Scenarios/medium-load/system-specifications``` directory to create the dataset found in ```Scenarios/medium-load/dataset```.
 
+*Note: to avoid running simulations for all IoT system specification files, we provide the ```response-times-dataset.csv``` file containing reponse times for the IoT system under different configurations. This file can be used in the next step*
+
 ##### Creating the PDDL domain and problem files
 Once the dataset is created, we can instantiate the PDDL domain and problem files. To do this, we run the following command:
 ```
@@ -87,10 +89,11 @@ where:
 Note that PDDL domain and problem file templates can be found in the directory ```pddl-templates``` at the same level of the ```dataset``` directory.
 Running this command will create the PDDL domain and problem files needed to run the AI planner, and place them in the ```pddl-files``` directory.
 
+
 For example, continuing with our medium-loaded system, we can run the following command to instantiate the PDDL domain and problem file templates:
 ```
 $ python Scripts/InstantiatePddlTemplates.py \
-Scenarios/medium-load/dataset/response-times.csv \
+Scenarios/medium-load/dataset/response-times-dataset.csv \
 Scenarios/medium-load/pddl-templates/domain-template.pddl \
 Scenarios/medium-load/pddl-templates/problem-template.pddl
 ```
