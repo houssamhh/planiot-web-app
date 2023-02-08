@@ -29,7 +29,7 @@ $ docker build --rm \
 
 To run the container and enter into it (with the shell command `/bin/bash`), run the following commands:
 ```
-$ cd planiot
+$ cd planiot-seams2023
 $ docker run -it --rm \
 --user "$(id -u)":"$(id -g)" \
 -v $(pwd):/home/planiot/planiot \
@@ -114,8 +114,8 @@ where:
 For example, we can run the following command to get a plan for our medium-loaded system:
 ```
 $ Scripts/run_planner.sh \
-Scenarios/medium-load/pddl-generated/domain-generated.pddl \
-Scenarios/medium-load/pddl-generated/domain-generated.pddl \
+Scenarios/medium-load/pddl-files/domain-generated.pddl \
+Scenarios/medium-load/pddl-files/problem-generated.pddl \
 Scenarios/medium-load/plans/solution.pddl
 ```
 
