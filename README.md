@@ -19,7 +19,7 @@ The Docker container runs Ubuntu version 20.04 with Metric-FF version 2.0 planne
 Start by cloning this repository.
 To build the container, execute the following commands:
 ```
-$ cd planiot
+$ cd planiot-seams2023
 $ docker build --rm \
 --build-arg UID=$(id -u) --build-arg GID=$(id -g) \
 --tag planiot:latest -f- . < dockerfile
