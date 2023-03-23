@@ -29,10 +29,13 @@ $ docker build --rm \
 
 To run the container and enter into it (with the shell command `/bin/bash`), run the following commands:
 ```
-$ cd planiot-seams2023
 $ docker run -it --rm \
 --user "$(id -u)":"$(id -g)" \
 -v $(pwd):/home/planiot/planiot \
+-v /tmp/.X11-unix:/tmp/.X11-unix \
+-v /tmp/.docker.xauth:/tmp/.docker.xauth \
+--env=DISPLAY=unix$DISPLAY \
+--env=XAUTHORITY=/tmp/.docker.xauth \
 planiot
 planiot@657641f176f4:~$ pwd
 /home/planiot
