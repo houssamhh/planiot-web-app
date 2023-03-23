@@ -11,7 +11,7 @@ This repository contains the following directories:
 
 ### Installing PlanIoT
 We provide a Docker container for running PlanIoT. To build and run the container, you need to have Docker installed. You can download Docker [here](https://docs.docker.com/get-docker/).
-We assume that the user is running a GNU/Linux system with the X11 system.
+We assume that the user is running a GNU/Linux system.
 Alternatively, we provide instructions for directly installing PlanIoT on your machine. However, to avoid dependency problems, we strongly recommend using the Docker container to run PlanIoT.
 #### Using  the Docker container
 ##### Building the container
