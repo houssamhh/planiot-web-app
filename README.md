@@ -9,9 +9,14 @@ This repository contains the following directories:
 * ```Scenarios```: contains the files needed to run experiments using PlanIoT (e.g., IoT system specifications, PDDL templates). These files were used to run the experiments found in [1].
 * ```Scripts```: contains scripts needed to run the Queueing Network Composer, Dataset Generator, PDDL Modeler, and the AI Planner.
 
+### Installation Requirements
+This artifact has been prepared for a host that supports X11 forwarding on Docker containers. X11 forwarding is required by the JMT simulator, even when the graphical user interface is not used.
+The artifact has been tested on GNU/Linux systems such as Debian or Ubuntu.
+For Windows users, you can install a Linux Distribution (Ubuntu/Debian) with [WSL](https://learn.microsoft.com/en-us/windows/wsl/install). The artifact has been tested with WSL 2 running Ubuntu.
+The artifact has NOT been tested with MacOS. 
+
 ### Installing PlanIoT
 We provide a Docker container for running PlanIoT. To build and run the container, you need to have Docker installed. You can download Docker [here](https://docs.docker.com/get-docker/).
-We assume that the user is running a GNU/Linux system with the X11 system (see [Installation Notes](#installation-notes)).
 Alternatively, we provide instructions for directly installing PlanIoT on your machine. However, to avoid dependency problems, we strongly recommend using the Docker container to run PlanIoT.
 #### Using  the Docker container
 ##### Building the container
@@ -157,14 +162,8 @@ export CLASSPATH=$CLASSPATH:/opt/JMT-v1.2.2/jmt-singlejar-1.2.2.jar
 ```
 You can now start [using PlanIoT](#using-planiot).
 
-### Installation Notes
-This artifact has been prepared for a host that supports X11 forwarding on Docker containers. X11 forwarding is required by the JMT simulator, even when the graphical user interface is not used.
-The artifact has been tested on GNU/Linux systems such as Debian or Ubuntu.
-For Windows users, you can install a Linux Distribution (Ubuntu/Debian) with [WSL](https://learn.microsoft.com/en-us/windows/wsl/install). The artifact has been tested with WSL 2 running Ubuntu.
-For MacOS users, we recommend installing a Virtual Machine running a Linux distribution. The artifact has not been tested with MacOS.
-
 ## Citations
 If you use this project, please cite the following paper:
- H. Hajj Hassan, G. Bouloukakis, A. Kattepur, D. Conan, and D. Belaïd, “PlanIoT: A Framework for Adaptive Data Flow Management in IoT-enhanced Spaces,” in IEEE/ACM International Symposium on Software Engineering for Adaptive and Self-Managing Systems (SEAMS), 2023.
+H. Hajj Hassan, G. Bouloukakis, A. Kattepur, D. Conan, and D. Belaïd, “PlanIoT: A Framework for Adaptive Data Flow Management in IoT-enhanced Spaces”, in *IEEE/ACM International Symposium on Software Engineering for Adaptive and Self-Managing Systems (SEAMS)*, 2023.
 
-[1] H. Hajj Hassan, G. Bouloukakis, A. Kattepur, D. Conan, and D. Belaïd, “PlanIoT: A Framework for Adaptive Data Flow Management in IoT-enhanced Spaces,” in IEEE/ACM International Symposium on Software Engineering for Adaptive and Self-Managing Systems (SEAMS), 2023.
+[1] H. Hajj Hassan, G. Bouloukakis, A. Kattepur, D. Conan, and D. Belaïd, “PlanIoT: A Framework for Adaptive Data Flow Management in IoT-enhanced Spaces”, in *IEEE/ACM International Symposium on Software Engineering for Adaptive and Self-Managing Systems (SEAMS)*, 2023.
