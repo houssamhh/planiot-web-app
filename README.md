@@ -62,7 +62,7 @@ To illustrate how PlanIoT can be used, we go through an example using the files 
 The directory ```Scenarios/medium-load/system-specifications``` contains IoT system specifications for an IoT system with 16 applications, 30 topics, and 80 subscriptions. Each JSON file corresponds to a specific configuration of the IoT system. For example, the file ```default.json``` represents a basic IoT platform where no priorities, drop rates, or resource allocation policies are used. On the other hand, the files ```prioRT.json``` and ```dropVS1.json``` represent the same IoT system while applying priorities to RT applications and a drop rate of 1% to VS applications, respectively.
 
 To create a queueing network, simulate it, and add the results of the simulation to the dataset, run the following command:
-```Scripts/run_simulation.sh <input-file> <output-file> <simulation-duration> <alias>```
+```bash ./Scripts/run_simulation.sh <input-file> <output-file> <simulation-duration> <alias>```
 where:
 *  ``<input-file>`` is the JSON file containing the IoT system specifications,
 *  ``<output-file>`` is the response times of subscriptions under different configurations of the IoT system. If the file does not exist, it will be created.
@@ -73,7 +73,7 @@ For example, if you want to run a simulation for the ``default`` configuration o
 ``` 
 $ planiot@657641f176f4:~$ pwd
 /home/planiot/planiot
-planiot@657641f176f4:~$ Scripts/run_simulation.sh Scenarios/medium-load/system-specifications/default.json Scenarios/medium-load/dataset/results.csv 300 default
+planiot@657641f176f4:~$ bash ./Scripts/run_simulation.sh Scenarios/medium-load/system-specifications/default.json Scenarios/medium-load/dataset/results.csv 300 default
 ```
 This command will generate ```metrics_default.csv``` and ```results.csv``` files in the ```Scenarios/medium-load/dataset``` directory.
 
@@ -108,7 +108,7 @@ Note that the script takes an additional argument when using templates for overl
 ##### Getting plans for Edge infrastructure adaptation
 To run the AI planner and get a plan for configuring the Edge infrastructure, we run the ```run_planner.sh``` script.
 ```
-$ Scripts/run_planner.sh <domain-file> <problem-file> <solution-file>
+$ bash ./Scripts/run_planner.sh <domain-file> <problem-file> <solution-file>
 ```
 where:
 * ```<domain-file>``` is the PDDL domain file
@@ -117,7 +117,7 @@ where:
 
 For example, we can run the following command to get a plan for our medium-loaded system:
 ```
-$ Scripts/run_planner.sh \
+$ bash ./Scripts/run_planner.sh \
 Scenarios/medium-load/pddl-files/domain-generated.pddl \
 Scenarios/medium-load/pddl-files/problem-generated.pddl \
 Scenarios/medium-load/plans/solution.pddl
