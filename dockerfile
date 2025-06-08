@@ -37,18 +37,31 @@ RUN cd /opt; \
     cd JMT-v1.2.2; \
     wget --progress dot:mega -O jmt-singlejar-1.2.2.jar http://sourceforge.net/projects/jmt/files/jmt/JMT-1.2.2/JMT-singlejar-1.2.2.jar/download
 
+
+
 # create user and configure .bashrc
 RUN groupadd -g $GID -o $UNAME; \
     useradd -m -u $UID -g $GID -o -s /bin/bash $UNAME; \
     echo "export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64" >> /home/$UNAME/.bashrc; \
     echo "PATH=\${PATH}:/opt/Metric-FF-v2.0/" >> /home/$UNAME/.bashrc; \
     echo "export CLASSPATH=/usr/lib/jvm/java-11-openjdk-amd64/lib:/opt/JMT-v1.2.2/jmt-singlejar-1.2.2.jar" >> /home/$UNAME/.bashrc; \
-    cat /home/$UNAME/.bashrc; \
-    mkdir -p /home/$UNAME/planiot
+    cat /home/$UNAME/.bashrc;
+ #  \    mkdir -p /home/$UNAME/planiot
+
+# install streamlit
+
+RUN apt-get install pip -y
+RUN pip install streamlit
+RUN pip install matplotlib
+RUN pip install scipy
 
 # set user, environment, and working directory
+
+COPY . /home/$UNAME/
+RUN echo "planiot ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 USER $UNAME
 ENV HOME=/home/$UNAME
 WORKDIR /home/$UNAME
 
-ENTRYPOINT ["/bin/bash"]
+#ENTRYPOINT ["/bin/bash"]
+CMD ["streamlit", "run", "Home.py", "--server.port=8501", "--server.address=0.0.0.0"]
