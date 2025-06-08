@@ -23,15 +23,15 @@ def run_planiot():
                     "Scenarios/medium-load/pddl-files/problem-generated.pddl",
                     "Scenarios/medium-load/plans/solution.pddl"])
   
-def run_planiot(directory):
-    subprocess.run(["sudo", "sed", "-i", "s/\r$//", "scripts/run_planner.sh"])
-    subprocess.run(["sudo", "chown", "-R", "planiot:planiot", "/home/planiot/planiot/Scenarios"])
-    subprocess.run(["sudo", "python", "scripts/InstantiatePddlTemplates.py", "Scenarios/{}/dataset/response-times-dataset.csv".format(directory),
-                    "Scenarios/{}/pddl-templates/domain-template.pddl".format(directory),
-                    "Scenarios/{}/pddl-templates/problem-template.pddl".format(directory)])
-    subprocess.run(["bash", "./scripts/run_planner.sh", "Scenarios/{}/pddl-files/domain-generated.pddl".format(directory),
-                    "Scenarios/{}/pddl-files/problem-generated.pddl".format(directory),
-                    "Scenarios/{}/plans/solution.pddl".format(directory)])
+# def run_planiot(directory):
+#     subprocess.run(["sudo", "sed", "-i", "s/\r$//", "scripts/run_planner.sh"])
+#     subprocess.run(["sudo", "chown", "-R", "planiot:planiot", "/home/planiot/planiot/Scenarios"])
+#     subprocess.run(["sudo", "python", "scripts/InstantiatePddlTemplates.py", "Scenarios/{}/dataset/response-times-dataset.csv".format(directory),
+#                     "Scenarios/{}/pddl-templates/domain-template.pddl".format(directory),
+#                     "Scenarios/{}/pddl-templates/problem-template.pddl".format(directory)])
+#     subprocess.run(["bash", "./scripts/run_planner.sh", "Scenarios/{}/pddl-files/domain-generated.pddl".format(directory),
+#                     "Scenarios/{}/pddl-files/problem-generated.pddl".format(directory),
+#                     "Scenarios/{}/plans/solution.pddl".format(directory)])
 
 def run_planiot_overloaded(directory):
     subprocess.run(["sudo", "sed", "-i", "s/\r$//", "scripts/run_planner.sh"])
